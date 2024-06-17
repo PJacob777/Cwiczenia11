@@ -1,0 +1,124 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Rider settings directory
+.idea/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+.StyleCopCache
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+# TFS
+$tf/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Office Temp Files
+~$*
+~*.docx
+~*.xlsx
+~*.pptx
+
+# Windows shortcuts
+*.lnk
+
+# Rider project specific
+.idea/
+
+# Rider IDE directories
+.idea/
+.idea_modules/
+.idea_settings/
+.idea_code_style/
+
+# JetBrains Rider Local History
+.idea/.history
+
+# Rider settings
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/jsLibraryMappings.xml
+.idea/vcs.xml
+.idea/libraries
+.idea/httpRequests
+.idea/scopes
+.idea/dataSources
+.idea/dataSources.local.xml
+.idea/dataSources.names.dat
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/testRunner.xml
+.idea/dotnet/ExternalAnnotations.xml
+.idea/dotnet/ExternalAnnotations.local.xml
+
+# Auto-generated files
+.idea/modules.xml
+
+# AWS credential files
+.aws/
