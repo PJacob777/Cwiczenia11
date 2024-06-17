@@ -20,7 +20,6 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
 });
 
 
-// === Dodaj serwis odpowiedzialny za autoryzacje tokenu
 builder.Services.AddAuthentication().AddJwtBearer(opt =>
 {
     opt.TokenValidationParameters = new TokenValidationParameters
@@ -46,9 +45,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// === Uruchom autoryzacje dla wyznaczonych koncowek
 app.UseAuthorization();
-// ===
+
 
 app.MapControllers();
 
