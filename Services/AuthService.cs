@@ -14,14 +14,14 @@ namespace JWT.Services
 {
     public interface IAuthService
     {
-        Task<LoginResponseModel> LoginAsync(LoginRequestModel model);
-        Task<LoginResponseModel> RefreshTokenAsync(string refreshToken);
-        Task<bool> RegisterAsync(RegisterRequestModel model);
+        Task<RsponseLogin> LoginAsync(LoginRequest model);
+        Task<RsponseLogin> RefreshTokenAsync(string refreshToken);
+        Task<bool> RegisterAsync(RegisterRequest model);
     }
 
     public class AuthService(IConfiguration config, DatabaseContext dbContext) : IAuthService
     {
-        public async Task<LoginResponseModel> LoginAsync(LoginRequestModel model)
+        public async Task<RsponseLogin> LoginAsync(LoginRequest model)
         {
             var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == model.UserName);
             if (user != null && VerifyPassword(user.PasswordHash, model.Password, user.Salt))
@@ -37,7 +37,7 @@ namespace JWT.Services
                 });
                 await dbContext.SaveChangesAsync();
 
-                return new LoginResponseModel
+                return new RsponseLogin
                 {
                     Token = token,
                     RefreshToken = refreshToken
@@ -47,7 +47,7 @@ namespace JWT.Services
             return null;
         }
 
-        public async Task<LoginResponseModel> RefreshTokenAsync(string refreshToken)
+        public async Task<RsponseLogin> RefreshTokenAsync(string refreshToken)
         {
             var storedToken = await dbContext.RefreshTokens.Include(rt => rt.User)
                 .SingleOrDefaultAsync(rt => rt.Token == refreshToken);
@@ -62,7 +62,7 @@ namespace JWT.Services
                 dbContext.RefreshTokens.Update(storedToken);
                 await dbContext.SaveChangesAsync();
 
-                return new LoginResponseModel
+                return new RsponseLogin
                 {
                     Token = newJwtToken,
                     RefreshToken = newRefreshToken
@@ -72,7 +72,7 @@ namespace JWT.Services
             return null;
         }
 
-        public async Task<bool> RegisterAsync(RegisterRequestModel model)
+        public async Task<bool> RegisterAsync(RegisterRequest model)
         {
             if (await dbContext.Users.AnyAsync(u => u.Email == model.UserName))
                 return false;

@@ -10,12 +10,12 @@ namespace JWT.Controllers
     {
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginRequestModel loginRequestModel)
+        public async Task<IActionResult> Login(LoginRequest loginRequest)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var response = await authService.LoginAsync(loginRequestModel);
+            var response = await authService.LoginAsync(loginRequest);
             if (response != null)
             {
                 return Ok(response);
@@ -24,9 +24,9 @@ namespace JWT.Controllers
         }
 
         [HttpPost("refresh")]
-        public async Task<IActionResult> RefreshToken(RefreshTokenRequestModel refreshTokenRequestModel)
+        public async Task<IActionResult> RefreshToken(RefreshTokenRequest refreshTokenRequest)
         {
-            var response = await authService.RefreshTokenAsync(refreshTokenRequestModel.RefreshToken);
+            var response = await authService.RefreshTokenAsync(refreshTokenRequest.RefreshToken);
             if (response != null)
             {
                 return Ok(response);
@@ -35,12 +35,12 @@ namespace JWT.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterRequestModel registerRequestModel)
+        public async Task<IActionResult> Register(RegisterRequest registerRequest)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var success = await authService.RegisterAsync(registerRequestModel);
+            var success = await authService.RegisterAsync(registerRequest);
             if (success)
             {
                 return Ok("User registered successfully");

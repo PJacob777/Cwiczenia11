@@ -2,7 +2,7 @@ namespace JWT.RequestModels;
 
 using System.ComponentModel.DataAnnotations;
 
-public class RefreshTokenRequestModel
+public class RefreshTokenRequest
 {
     [Required] public string RefreshToken { get; set; }
 }
